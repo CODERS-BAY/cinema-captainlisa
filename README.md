@@ -21,15 +21,15 @@ Create a ERD and a Relation Model for this example
 
 ## textual presentation (updated to version 2):
 
-* Cinema (**cinema_ID:int**, *schedule_ID:int*, name:varchar(20), street:varchar(32), zip:varchar(5), city:varchar(15), number_of_halls:int)
+* Cinema (**cinema_ID:int**, *schedule_ID:int*, cinema_name:varchar(20), street:varchar(32), zip:varchar(5), city:varchar(15), number_of_halls:int)
 * Hall (**hall_ID:int**, *plan_ID:int*, *schedule_ID:int*, number_of_rows:int, number_of_seats:int, feature:varchar(20))
 * Row (**row_nr:int**, *plan_ID:int*, is_box:boolean, standard_price:double, special_price:double, number_of_seats:int)
-* Seating Plan (**plan_ID:int**, *hall_ID:int*, *row_nr:int*, seat_nr:int)
-* Schedule (**schedule_ID:int**, *hall_ID:int*, *cinema_ID:int*, *film_ID:int*, date:date, starting_time:time, tickets_reserved:int, tickets_purchased:int)
-* Ticket (**ticket_ID:varchar(20)**, *schedule_ID:int*, cinema:varchar(20), hall_ID:int, title:varchar(32), date:date, starting_time:time, row:int, seat:int, price:double)
-* Actor (**actor_ID:int**, *cast_ID:int*, first_name:varchar(20), last_name:varchar(20), nationality:varchar(20), date_of_birth:date, date_of_death:date, comment:text(200))
-* Director (**director_ID:int**, *cast_ID:int*, first_name:varchar(20), last_name:varchar(20), nationality:varchar(20), date_of_birth:date, date_of_death:date, comment:text(200), is_acting:boolean)
-* Castlist (**cast_ID:int**, *film_ID:int*, *actor_ID:int*, *director_ID:int*, role:varchar(32))
-* Film (**film_ID:int**, title:varchar(32), genre:varchar(20), year_of_production:year, country:varchar(20), language:varchar(20), duration:int, distribution:varchar(32))
+* Seating Plan (**plan_ID:int**, hall_ID:int, row_nr:int, seat_nr:int)
+* Schedule (**schedule_ID:int**, hall_ID:int, cinema_ID:int, film_ID:int, screening_date:date, starting_time:time, tickets_reserved:int, tickets_purchased:int)
+* Ticket (**ticket_ID:varchar(20)**, *schedule_ID:int*, cinema:varchar(20), hall_ID:int, title:varchar(32), screening_date:date, starting_time:time, row:int, seat:int, price:double)
+* Actor (**actor_ID:int**, *cast_ID:int*, first_name:varchar(20), last_name:varchar(20), nationality:varchar(20), birthday:date, date_of_death:date, further_comment:text(200))
+* Director (**director_ID:int**, *cast_ID:int*, first_name:varchar(20), last_name:varchar(20), nationality:varchar(20), birthday:date, date_of_death:date, further_comment:text(200), is_acting:boolean)
+* Castlist (**cast_ID:int**, film_ID:int, actor_ID:int, director_ID:int, role:varchar(32))
+* Film (**film_ID:int**, *schedule_ID:int*, *cast_ID:int*, title:varchar(32), genre:varchar(20), year_of_production:year, country:varchar(20), language:varchar(20), duration:int, distribution:varchar(32))
 
 (serial number of screening = schedule_ID)
