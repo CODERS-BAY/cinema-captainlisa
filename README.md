@@ -33,3 +33,7 @@ Create a ERD and a Relation Model for this example
 * Film (**film_ID:int**, *schedule_ID:int*, *cast_ID:int*, title:varchar(32), genre:varchar(20), year_of_production:year, country:varchar(20), language:varchar(20), duration:int, distribution:varchar(32))
 
 (serial number of screening = schedule_ID)
+
+## Cinema Schema
+
+![Cinema](cinema_schema.jpg)
